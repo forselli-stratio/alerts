@@ -1,0 +1,17 @@
+{{- range $.Values.grafana.dashboards }}
+{{- if .enabled }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stratio-operations-{{ .name }}-grafana-dashboard
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+  labels:
+    {{ $.Values.grafana.dashboards_label }}: "1"
+    {{- include "stratio-dashboards.labels" $ | nindent 4 }}
+data:
+  stratio-operations-{{ .name }}-grafana-dashboard.json: |
+{{ $.Files.Get (printf "dashboards/%s.json" .name) | indent 4 }}
+{{ end }}
+{{- end }}

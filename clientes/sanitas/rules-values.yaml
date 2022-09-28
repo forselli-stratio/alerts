@@ -1,0 +1,36 @@
+---
+# Default values for stratio-monitoring.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+nameOverride: ""
+
+prometheus:
+  rules:
+    groups:
+      - name: elasticsearch
+        rules:
+          - name: ElasticsearchClusterRed
+            expr: "elasticsearch_cluster_health_status{color='red'} == 1"
+            for: "10m"
+            labels:
+              severity: "high"
+            annotations:
+              description: "Elastic Cluster Red status. VALUE = {{ $value }}  LABELS = {{ $labels }}"
+              runbook_url: https://urldescripcionalerta.com
+              summary: Elasticsearch Cluster Red (instance {{ $labels.instance }})
+          - name: ElasticsearchClusterYellow
+            expr: "elasticsearch_cluster_health_status{color='yellow'} == 1"
+            for: "10m"
+            labels:
+              severity: "warning"
+            annotations:
+              description: "Elastic Cluster Yellow status. VALUE = {{ $value }}  LABELS = {{ $labels }}"
+              runbook_url: https://urldescripcionalerta.com
+              summary: Elasticsearch Cluster Yellow (instance {{ $labels.instance }})
+      - name: postgres
+        rules:
+          - name: PostgresqlDown
+            expr: "pg_up == 1"
+            for: "100m"
+            labels:
+              severity: "low"
