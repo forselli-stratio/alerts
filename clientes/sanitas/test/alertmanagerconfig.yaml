@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
-  name: alertmanagerconfig-${tenant}
+  name: alertmanagerconfig-test
 spec:
   route:
     groupBy: ['namespace']

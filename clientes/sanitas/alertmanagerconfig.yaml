@@ -1,11 +1,11 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
-  name: alertmanagerconfig-${tenant}
+  name: alertmanagerconfig-keos
 spec:
   route:
     groupBy: ['namespace']
-    groupWait: 30s
+    groupWait: 60s
     groupInterval: 5m
     repeatInterval: 12h
     receiver: 'null'

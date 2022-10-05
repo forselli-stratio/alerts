@@ -7,6 +7,7 @@ metadata:
   name: stratio-operations-{{ .name }}-grafana-dashboard
   namespace: {{ $.Release.Namespace }}
   annotations:
+    k8s-sidecar-target-directory: /tmp/dashboards/{{ .tenant }}
   labels:
     {{ $.Values.grafana.dashboards_label }}: "1"
     {{- include "stratio-dashboards.labels" $ | nindent 4 }}

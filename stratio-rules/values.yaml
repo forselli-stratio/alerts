@@ -4,6 +4,8 @@
 # Declare variables to be passed into your templates.
 nameOverride: ""
 
+commonAnnotations: ""
+
 prometheus:
   rules:
     groups:

@@ -139,14 +139,13 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "builder",
-          "expr": "pg_up",
-          "hide": false,
+          "expr": "prometheus_build_info",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "PG UP",
+      "title": "Build info",
       "type": "timeseries"
     }
   ],
@@ -162,8 +161,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Postgres",
-  "uid": "OYlI5P44z",
-  "version": 3,
+  "title": "Prometheus",
+  "uid": "a0SF5E44k",
+  "version": 2,
   "weekStart": ""
 }
