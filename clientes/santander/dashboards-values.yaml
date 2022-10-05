@@ -9,5 +9,7 @@ grafana:
   dashboards:
     - name: postgres
       enabled: true
-    - name: kafka
+      tenant: keos
+    - name: prometheus
       enabled: true
+      tenant: keos
