@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanagerconfig-keos
+spec:
+  route:
+    groupBy: ['namespace']
+    groupWait: 60s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'null'
+    routes:
+    - matchers:
+      - matchType: '='
+        name: alertname
+        value: Watchdog
+  receivers:
+  - name: 'null'

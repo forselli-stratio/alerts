@@ -1,0 +1,15 @@
+---
+# Default values for stratio-monitoring.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+nameOverride: ""
+
+grafana:
+  dashboards_label: "grafana_dashboard"
+  dashboards:
+    - name: postgres
+      enabled: true
+      tenant: keos
+    - name: prometheus
+      enabled: true
+      tenant: test
